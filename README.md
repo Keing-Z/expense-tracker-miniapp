@@ -53,12 +53,13 @@ confirmation, and it never reads clipboard contents.
 
 ## Testing
 
-Three layers, **82 assertions**, all passing:
+Four files across unit, integration and static layers — **89 assertions**, all passing:
 
 ```bash
 node test/store.test.js         # 26 — formatting, aggregation, streaks, budgets
-node test/integration.test.js   # 42 — full interaction flows across all four pages
-node test/static.test.js        #     — page registration, event bindings, template vars
+node test/backup.test.js        # 19 — backup/restore round-trip, id back-fill, integer cents
+node test/integration.test.js   # 44 — full interaction flows across all four pages
+node test/static.test.js        #    — page registration, event bindings, 48 template var refs
 ```
 
 The integration layer runs the real page logic against a mocked `wx` runtime, so keypad
